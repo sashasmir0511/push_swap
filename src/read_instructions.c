@@ -12,6 +12,12 @@
 
 #include "push_swap.h"
 
+static void	clear(t_head *head_a, t_head *head_b)
+{
+	lst_delete(head_a);
+	lst_delete(head_b);
+}
+
 static int	check_command(t_head *head_a, t_head *head_b, char *line)
 {
 	if (ft_strcmp(line, "sa") == 0)
@@ -41,7 +47,7 @@ static int	check_command(t_head *head_a, t_head *head_b, char *line)
 	return (1);
 }
 
-void		read_instructions(t_head *head_a, t_head *head_b)
+void		read_instructions(t_head *head_a, t_head *head_b, int fl)
 {
 	char	*line;
 	size_t	fd;
@@ -52,18 +58,20 @@ void		read_instructions(t_head *head_a, t_head *head_b)
 		ft_printf("OK\n");
 		return ;
 	}
+	fl += 0;
 	while (get_next_line(fd, &line) == 1)
 	{
 		if (!check_command(head_a, head_b, line))
 		{
 			free(line);
-			lst_delete(head_a);
-			lst_delete(head_b);
+			clear(head_a, head_b);
 			error_exit();
 		}
 		free(line);
 	}
+	free(line);
 	close(fd);
+	
 	if (!check_sort_stack(head_a) && head_b->size == 0)
 		ft_printf("OK\n");
 	else

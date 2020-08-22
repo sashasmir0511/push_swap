@@ -44,10 +44,8 @@ static int				check_only_number(int ac, char **av)
 int						*is_valid(int argc, char **argv)
 {
 	int				count;
-	int				i;
 	int				*tab;
 
-	i = 1;
 	if (check_only_number(argc, argv))
 	{
 		count = counter(argv);

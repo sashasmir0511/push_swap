@@ -31,7 +31,7 @@ SRC_CH = check_dooble.c check_sort_stack.c checker.c counter.c direction.c \
 	lst_create_command.c lst_delete.c lst_find_number.c lst_free_command.c \
 	lst_init_b.c lst_init_command.c lst_make_for_tab.c lst_print.c lst_push.c\
 	lst_reverse_rotate.c lst_rotate.c lst_swap.c lstadd.c lstnew.c \
-	make_stack.c opt_markup_stack.c quick_sort.c\
+	make_stack.c opt_markup_stack.c quick_sort.c display.c display_draw.c \
 	read_instructions.c set_index.c solve.c solve_a.c solve_b.c \
 
 OBJ_CH = $(SRC_CH:.c=.o)
