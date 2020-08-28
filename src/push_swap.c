@@ -19,7 +19,8 @@ int		main(int argc, char **argv)
 
 	if (argc >= 2)
 	{
-		head_a = make_stack(argc, argv);
+		if (!(head_a = make_stack(argc, argv)))
+			error_exit();
 		opt_markup_stack(head_a, &markup_stack_index);
 		command = solve(head_a, &markup_stack_index);
 		lst_delete(head_a);

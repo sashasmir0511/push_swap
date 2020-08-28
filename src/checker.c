@@ -30,15 +30,17 @@ int			main(int argc, char **argv)
 	head_b->stack = NULL;
 	head_b->size = 0;
 	fl = 0;
-	if (argc != 1)
+	if (argc >= 2)
 	{
 		if (!(head_a = make_stack(argc, argv)))
 		{
 			clear(head_a, head_b);
-			return 1;
+			error_exit();
 		}
 		read_instructions(head_a, head_b, fl);
 	}
+	else
+		error_exit();
 	clear(head_a, head_b);
 	return (0);
 }
