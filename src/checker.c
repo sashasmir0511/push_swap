@@ -20,16 +20,14 @@ static void	clear(t_head *head_a, t_head *head_b)
 
 int			main(int argc, char **argv)
 {
-	int		fl;
 	t_head	*head_a;
 	t_head	*head_b;
 
-	head_a = NULL;	
+	head_a = NULL;
 	if (!(head_b = (t_head *)ft_memalloc(sizeof(t_head))))
 		error_exit();
 	head_b->stack = NULL;
 	head_b->size = 0;
-	fl = 0;
 	if (argc >= 2)
 	{
 		if (!(head_a = make_stack(argc, argv)))
@@ -37,10 +35,10 @@ int			main(int argc, char **argv)
 			clear(head_a, head_b);
 			error_exit();
 		}
-		read_instructions(head_a, head_b, fl);
+		read_instructions(head_a, head_b);
+		clear(head_a, head_b);
 	}
 	else
-		error_exit();
-	clear(head_a, head_b);
+		clear(head_a, head_b);
 	return (0);
 }

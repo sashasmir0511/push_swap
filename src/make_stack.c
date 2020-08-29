@@ -20,14 +20,14 @@ t_head	*make_stack(int argc, char **argv)
 
 	tab = is_valid(argc, argv);
 	if (tab == NULL)
-		return NULL;
+		return (NULL);
 	count = counter(argv);
 	head_a = lst_make_for_tab(count, tab);
 	if (head_a == NULL || count == 0)
 	{
 		lst_delete(head_a);
 		free(tab);
-		return NULL;
+		return (NULL);
 	}
 	quick_sort(tab, 0, count - 1);
 	set_index(tab, count, head_a);
